@@ -1,4 +1,4 @@
-package nl.erwinolie.`Advent of Code 2015`.`03 - Perfectly Spherical Houses in a Vacuum`
+package nl.erwinolie.`Advent-of-Code-2015`.`03 - Perfectly Spherical Houses in a Vacuum`
 
 import nl.erwinolie.extensions.input
 
