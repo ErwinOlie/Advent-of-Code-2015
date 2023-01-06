@@ -1,4 +1,4 @@
-package nl.erwinolie.`Advent of Code 2015`.`02 - I Was Told There Would Be No Math`
+package nl.erwinolie.`Advent-of-Code-2015`.`02 - I Was Told There Would Be No Math`
 
 import nl.erwinolie.extensions.input
 
