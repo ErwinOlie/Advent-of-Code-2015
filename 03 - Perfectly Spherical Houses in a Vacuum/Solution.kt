@@ -1,5 +1,6 @@
 package nl.erwinolie.`Advent-of-Code-2015`.`03 - Perfectly Spherical Houses in a Vacuum`
 
+import nl.erwinolie.extensions.Point2D
 import nl.erwinolie.extensions.input
 
 class Radio {
@@ -15,15 +16,14 @@ class Radio {
     }
 }
 
-data class Point(val x: Int, val y: Int)
 enum class Instruction(
     private val direction: Char,
-    val moveDelta: Point
+    val moveDelta: Point2D
 ) {
-    NORTH('^', Point(0, -1)),
-    SOUTH('v', Point(0, 1)),
-    EAST('>', Point(1, 0)),
-    WEST('<', Point(-1, 0));
+    NORTH('^', Point2D(0, -1)),
+    SOUTH('v', Point2D(0, 1)),
+    EAST('>', Point2D(1, 0)),
+    WEST('<', Point2D(-1, 0));
 
     companion object {
         fun ofDirection(direction: Char) =
@@ -33,9 +33,9 @@ enum class Instruction(
 
 class Santa(
     private val radio: Radio,
-    private val visitedHouses: MutableSet<Point> = mutableSetOf()
+    private val visitedHouses: MutableSet<Point2D> = mutableSetOf()
 ) {
-    private var position = Point(0, 0)
+    private var position = Point2D(0, 0)
 
     fun deliver() {
         while (radio.hasInstruction()) {
@@ -44,8 +44,7 @@ class Santa(
     }
 
     fun move(instruction: Instruction) {
-        val (dx, dy) = instruction.moveDelta
-        position = Point(position.x + dx, position.y + dy)
+        position += instruction.moveDelta
         visitedHouses += position
     }
 
@@ -54,19 +53,19 @@ class Santa(
 }
 
 fun main() {
-    println(answer1())
-    println(answer2())
+    println(answer1()) // 2592
+    println(answer2()) // 2360
 }
 
 fun answer1(): Int {
-    val santa = Santa(Radio(), mutableSetOf(Point(0, 0)))
+    val santa = Santa(Radio(), mutableSetOf(Point2D(0, 0)))
     santa.deliver()
     return santa.visitedHousesCount()
 }
 
 fun answer2(): Int {
     val radio = Radio()
-    val visitedHouses = mutableSetOf(Point(0, 0))
+    val visitedHouses = mutableSetOf(Point2D(0, 0))
 
     val santas = listOf(
         Santa(radio, visitedHouses),
