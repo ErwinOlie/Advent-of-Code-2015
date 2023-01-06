@@ -1,4 +1,4 @@
-package nl.erwinolie.`Advent of Code 2015`.`01 - Not Quite Lisp`
+package nl.erwinolie.`Advent-of-Code-2015`.`01 - Not Quite Lisp`
 
 import nl.erwinolie.extensions.input
 
