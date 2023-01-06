@@ -53,8 +53,8 @@ class Santa(
 }
 
 fun main() {
-    println(answer1())
-    println(answer2())
+    println(answer1()) // 2592
+    println(answer2()) // 2360
 }
 
 fun answer1(): Int {
